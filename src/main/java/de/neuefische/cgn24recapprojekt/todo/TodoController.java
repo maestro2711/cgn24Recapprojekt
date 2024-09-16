@@ -38,9 +38,9 @@ public class TodoController {
     }
 
     @PutMapping("/{id}")
-    public Todo updateTodo(@RequestBody UpdateTodo todo,@PathVariable String id){
+    public Todo updateTodo(@RequestBody UpdateTodo todo){
         Todo todoToUpdate = new Todo(UUID.randomUUID().toString(),todo.description(),todo.status());
-        return todoService.updateTodo(todoToUpdate.id(),todo);
+        return todoService.updateTodo(todo);
     }
 
 }

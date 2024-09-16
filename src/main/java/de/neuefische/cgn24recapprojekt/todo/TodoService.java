@@ -24,8 +24,8 @@ public class TodoService {
                 return repository.save(savedTodo);
     }
 
-    public Todo updateTodo(String id ,UpdateTodo todo){
-        Todo todoToUpdate = new Todo(id, todo.description(), todo.status());
+    public Todo updateTodo(UpdateTodo todo){
+        Todo todoToUpdate = new Todo(UUID.randomUUID().toString(), todo.description(), todo.status());
             return repository.save(todoToUpdate);
 
 
