@@ -24,9 +24,9 @@ public class TodoService {
                 return repository.save(savedTodo);
     }
 
-    public Todo updateTodo(UpdateTodo todo){
-        Todo todoToUpdate = new Todo(UUID.randomUUID().toString(), todo.description(), todo.status());
-            return repository.save(todoToUpdate);
+    public Todo updateTodo(Todo todo){
+//        Todo todoToUpdate = new Todo(UUID.randomUUID().toString(), todo.description(), todo.status());
+            return repository.save(todo);
 
 
     }
@@ -37,10 +37,11 @@ public class TodoService {
                     .orElseThrow(()->new NoSuchElementException("Element with id:" +id+ "not found"));
     }
 
-    public void deleteTodo(String id){
+    public Todo deleteTodo(String id){
 
             repository.deleteById(id);
 
+        return null;
     }
 
 }

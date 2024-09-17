@@ -2,6 +2,7 @@ package de.neuefische.cgn24recapprojekt.todo;
 
 
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.message.StringFormattedMessage;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,8 +39,8 @@ public class TodoController {
     }
 
     @PutMapping("/{id}")
-    public Todo updateTodo(@RequestBody UpdateTodo todo){
-        Todo todoToUpdate = new Todo(UUID.randomUUID().toString(),todo.description(),todo.status());
+    public Todo updateTodo( @PathVariable String id, @RequestBody Todo todo){
+//        Todo todoToUpdate = new Todo(UUID.randomUUID().toString(),todo.description(),todo.status());
         return todoService.updateTodo(todo);
     }
 
